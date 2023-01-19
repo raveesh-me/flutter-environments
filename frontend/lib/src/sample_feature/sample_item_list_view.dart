@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/main.dart';
+import 'package:plausible_analytics/plausible_analytics.dart';
 
 import '../settings/settings_view.dart';
 import 'sample_item.dart';
@@ -17,6 +19,12 @@ class SampleItemListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Plausible(serverUrl, domain).event(
+      name: 'SampleItemListView',
+      props: {'items': 'asdas'},
+      page: "HomePage",
+      
+    );
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sample Items'),
